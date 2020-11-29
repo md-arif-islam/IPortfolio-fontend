@@ -1,0 +1,857 @@
+// ========================= Basic CSS====================
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: initial;
+}
+
+html {
+  font-size: 62.5%;
+  // This made 1rem = 10px
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  font-family: $font;
+  font-weight: 400;
+  line-height: 1.5;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  color: $text-color;
+}
+
+section {
+  padding: 4rem 2rem;
+}
+
+// ========================= Global CSS====================
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.section_title {
+  font: normal 600 30px/45px $font;
+  color: $secondary-color;
+  border-bottom: 3px solid $primary-color;
+  width: 60px;
+}
+
+.section_desc {
+  font: normal 400 16px/25px $font;
+  color: $text-color;
+  padding-top: 20px;
+}
+
+.button {
+  margin-top: 3rem;
+  font: normal 500 14px/15px $font;
+  color: #fff;
+  background: $primary-color;
+  padding: 1.5rem 2.5rem;
+  border-radius: 3rem;
+  transition: 0.4s ease;
+  display: inline-block;
+  box-shadow: $box-shadow;
+  outline: none;
+  border: none;
+
+  &:hover {
+    background-color: $primary-color-2nd;
+    transition: 0.3s;
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}
+
+// mobile-nav-toggle
+.mobile-nav-toggle {
+  i {
+    position: fixed;
+    right: 1.5rem;
+    top: 1.5rem;
+    z-index: 9998;
+    width: 5.7rem;
+    color: $primary-color;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 5.8rem;
+    font-size: 3.5rem;
+    cursor: pointer;
+    margin-left: -3.2rem;
+    // transition: 0.3s ease;
+    // transition-property: transform;
+
+    &:hover {
+      color: $primary-color-2nd;
+    }
+    span {
+      animation: hamburger_puls 1s ease infinite;
+      position: fixed;
+      right: 1.5rem;
+      top: 1.5rem;
+      z-index: 9998;
+      width: 6rem;
+      height: 5.9rem;
+      border-radius: 50%;
+      border: 3px solid $primary-color-2nd;
+    }
+  }
+}
+
+@keyframes hamburger_puls {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+// ========================== Pree Loader =======================
+.loader_container {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+
+  .loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid;
+    color: blue;
+    border-radius: 50%;
+    border-top: transparent;
+    animation: loader 1.2s linear infinite;
+  }
+}
+
+@keyframes loader {
+  25% {
+    color: crimson;
+  }
+  50% {
+    color: orange;
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ========================================================== Header ===========================================
+.header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  background-color: #040b14;
+  transition: all 0.5s;
+  padding: 0 15px;
+  z-index: 997;
+  overflow-y: auto;
+
+  &_profile {
+    padding: 5px;
+
+    img {
+      margin: 15px auto;
+      display: block;
+      width: 120px;
+      border: 8px solid #2c2f3f;
+    }
+
+    h1 {
+      color: #fff;
+      font: normal bold 20px/25px $font;
+    }
+
+    &_icon {
+      padding: 5px;
+
+      i {
+        background-color: #2c2f3f;
+        width: 3.3rem;
+        height: 3.3rem;
+        color: #fff;
+        text-align: center;
+        border-radius: 50%;
+        line-height: 3.3rem;
+        font-size: 1.8rem;
+        margin: 0 4px;
+
+        &:hover {
+          background-color: $primary-color;
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+
+  &_nav {
+    ul {
+      list-style: none;
+      padding: 3rem 2rem;
+
+      li {
+        padding: 1.5rem 0;
+
+        a {
+          i {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-right: 10px;
+            color: #a8a9b4;
+          }
+
+          span {
+            font: normal 500 16px/20px $font;
+            color: #a8a9b4;
+          }
+          &:hover,
+          &.active {
+            i {
+              color: $primary-color;
+              transition: 0.2s;
+            }
+
+            span {
+              color: #fff;
+              transition: 0.4s;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .color {
+    display: inline-block;
+    img {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+// ====================================================== Main ===================================================
+.main {
+  margin-left: 300px;
+
+  // ------------------------------ Hero ------------------
+  .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.6)),
+      url(../img/hero-bg.jpg);
+    background-size: cover;
+    background-position: top right;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+    &_content {
+      position: absolute;
+      top: 40%;
+      left: 20%;
+
+      h1 {
+        font: normal bold 60px /70px $font;
+        color: #fff;
+      }
+
+      h6 {
+        font: normal bold 30px /40px $font;
+        color: #fff;
+
+        span {
+          padding-bottom: 3px;
+          border-bottom: 3px solid $primary-color;
+        }
+      }
+    }
+    .bubbles {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      position: absolute;
+      top: -60px;
+      img {
+        width: 50px;
+        animation: bubble 7s linear infinite;
+
+        &:nth-child(1) {
+          width: 20px;
+          animation-delay: 0.1s;
+        }
+        &:nth-child(2) {
+          width: 35px;
+          animation-delay: 4.5s;
+        }
+        &:nth-child(3) {
+          width: 55px;
+          animation-delay: 2s;
+        }
+        &:nth-child(4) {
+          width: 25px;
+          animation-delay: 0.1s;
+        }
+        &:nth-child(5) {
+          width: 35px;
+          animation-delay: 4s;
+        }
+        &:nth-child(6) {
+          width: 55px;
+          animation-delay: 2s;
+        }
+        &:nth-child(7) {
+          width: 55px;
+          animation-delay: 4.5s;
+        }
+      }
+    }
+  }
+  @keyframes bubble {
+    0% {
+      transform: translateY(95vh);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.7;
+    }
+    70% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+  }
+
+  // ------------------------------ About ------------------
+
+  .about {
+    &_content {
+      padding: 1.5rem 0 3rem 0;
+
+      &_img {
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      &_text {
+        padding-top: 2rem;
+
+        h1 {
+          font: normal bold 25px/35px $font;
+          color: $secondary-color;
+        }
+
+        p {
+          font: normal 500 16px/20px $font;
+          color: $text-color;
+        }
+
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+
+          h4 {
+            font: normal 500 16px/25px $font;
+            color: #000012eb;
+
+            i {
+              color: $primary-color;
+              font-size: 1.5rem;
+              padding: 0 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ------------------------------ Fact ------------------
+
+.fact {
+  &_content {
+    padding: 2rem;
+
+    i {
+      font-size: 5rem;
+      color: $primary-color;
+      text-align: center;
+      padding: 0 15px;
+    }
+
+    span {
+      font: normal bold 45px/60px $font;
+      color: #000012eb;
+    }
+
+    p {
+      font: normal bold 16px/25px $font;
+      color: $secondary-color;
+    }
+  }
+}
+
+// ------------------------------ Skill ------------------
+
+.skill {
+  &_content {
+    padding: 4rem 0 3rem 0;
+
+    &_progress {
+      padding: 0.7rem;
+
+      b {
+        font: normal 600 12px/20px $font;
+        color: #000012eb;
+        text-transform: uppercase;
+      }
+
+      span {
+        font: normal 600 12px/20px $font;
+        color: #000012eb;
+        float: right;
+      }
+
+      &_ber {
+        height: 10px;
+        background-color: $primary-color-2nd;
+
+        &_ber {
+          height: 10px;
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+// ------------------------------ Portfolio ------------------
+
+.portfolio {
+  background-color: #f7eff0;
+
+  &_buttons {
+    padding: 4rem 0 3rem 0;
+
+    ul {
+      padding: 2rem;
+      background: #fff;
+      display: inline-block;
+      border-radius: 15px;
+      list-style: none;
+
+      li {
+        padding: 0 1rem;
+        font: normal 800 12px/20px $font;
+        color: #000012eb;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      li.active,
+      li:hover {
+        color: $primary-color;
+        transition: 0.3s;
+      }
+    }
+  }
+
+  &_item {
+    padding: 20px 5px 30px 5px;
+
+    &_wrap {
+      position: relative;
+
+      &_media {
+        position: relative;
+
+        img {
+          position: relative;
+          width: 100%;
+          height: auto;
+          transition: 0.5s ease;
+        }
+        i {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: $primary-color;
+          font-size: 40px;
+          opacity: 0;
+          transition: 0.5s ease;
+        }
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.1);
+          filter: blur(1px);
+          transition: 0.5s ease;
+        }
+        i {
+          opacity: 1;
+          transition: 0.5s ease;
+        }
+      }
+    }
+  }
+}
+// .mfp-zoom-out-cur {
+//   .header {
+//     left: -300px;
+//   }
+//   .footer {
+//     left: -300px;
+//   }
+//   .visible {
+//     visibility: hidden;
+//     opacity: 0;
+//   }
+//   .mobile-nav-toggle {
+//     display: none;
+//   }
+// }
+
+// ------------------------------ Services ------------------
+
+.services {
+  &_content {
+    padding: 2rem 1rem 1rem 1rem;
+    transition: 0.4s;
+
+    &_icon {
+      float: left;
+      display: flex;
+
+      i {
+        width: 5rem;
+        height: 5rem;
+        line-height: 5rem;
+        background: $primary-color;
+        text-align: center;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: #fff;
+        transition: 0.5s;
+        border: 1px solid $primary-color;
+
+        &:hover {
+          background: #fff;
+          color: $primary-color;
+          transition: 0.5s;
+        }
+      }
+    }
+
+    &_text {
+      margin-left: 6rem;
+
+      h3 {
+        font: normal 700 20px/25px $font;
+        color: #040b14;
+      }
+
+      p {
+        font: normal 400 12px/18px $font;
+        color: $text-color;
+      }
+    }
+
+    .col-lg-4:hover {
+      box-shadow: $box-shadow;
+      transition: 0.4s;
+    }
+  }
+}
+
+// ------------------------------ Testimonial ------------------
+
+.testimonial {
+  background-color: #f7eff0;
+
+  &_carousel {
+    padding: 2rem;
+
+    &_item {
+      box-sizing: content-box;
+      text-align: center;
+      min-height: 320px;
+
+      p {
+        font-style: italic;
+        margin: 0 15px 15px 15px;
+        padding: 20px;
+        background-color: #fff;
+        position: relative;
+        margin-bottom: 35px;
+        background-origin: 6px;
+        box-shadow: $box-shadow;
+        font: normal 400 16px/25px $font;
+
+        &::after {
+          content: "";
+          width: 0;
+          height: 0;
+          border-top: 20px solid #fff;
+          border-right: 20px solid transparent;
+          border-left: 20px solid transparent;
+          position: absolute;
+          bottom: -20px;
+          left: calc(50% - 20px);
+        }
+      }
+
+      img {
+        width: 90px !important;
+        border-radius: 50%;
+        margin: 0 auto;
+      }
+
+      h4 {
+        font: normal 700 16px/25px $font;
+        color: #040b14;
+      }
+
+      h3 {
+        font: normal 500 14px/15px $font;
+        color: $text-color;
+      }
+    }
+
+    .owl-dots {
+      margin-top: 10px;
+      text-align: center;
+
+      button {
+        display: inline-block;
+        margin: 0 5px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #ddd !important;
+
+        &:focus {
+          outline: none;
+          border: 0;
+        }
+      }
+
+      .active {
+        background-color: $primary-color !important;
+      }
+    }
+  }
+}
+
+// -----------------Php Project ---------------------------
+
+.php_project {
+  background-color: rgb(218, 225, 253);
+
+  &_content {
+    ul {
+      // list-style: decimal-leading-zero;
+      li {
+        list-style: circle;
+        font-size: 18px;
+        a {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+// ------------------------------ Contect ------------------
+
+.contact {
+  &_info {
+    margin: 1rem;
+    width: 100%;
+    padding: 2rem;
+    box-shadow: $box-shadow;
+
+    &_item {
+      padding: 1rem 0;
+
+      i {
+        font-size: 2rem;
+        color: $primary-color;
+        float: left;
+        width: 4.4rem;
+        height: 4.4rem;
+        background: $primary-color-2nd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          background: $primary-color;
+          color: #fff;
+          transition: 0.3s;
+        }
+      }
+
+      h4 {
+        padding: 0 0 0 60px;
+        font: normal 700 16px/20px $font;
+      }
+
+      p {
+        padding: 0 0 10px 60px;
+        font: normal 400 12px/20px $font;
+        color: #040b14;
+      }
+    }
+  }
+
+  &_form {
+    width: 100%;
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: $box-shadow;
+
+    label {
+      font: normal 500 16px/20px $font;
+      color: #040b14;
+    }
+
+    input,
+    textarea {
+      position: relative;
+      width: 100%;
+      margin: 0 0 20px;
+      padding: 12px 26px;
+      font-family: $font;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 20px;
+      color: $secondary-color !important;
+      background-color: $background;
+      border: 1px solid transparent;
+      box-shadow: inset 3px 5px 5px 0 rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease-in-out;
+
+      &:focus {
+        border: 1px solid $primary-color;
+        color: $primary-color;
+        background-color: #f4f4f4;
+        box-shadow: inset 3px 5px 5px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+      }
+    }
+  }
+  #result {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// ====================================================== Footer ===================================================
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  background-color: #040b14;
+  transition: all 0.5s;
+  padding: 10px 15px;
+  z-index: 999;
+
+  h5 {
+    font: normal 500 16px/20px $font;
+    color: #fff;
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  p {
+    font: normal 500 14px/16px $font;
+    color: #fff;
+
+    span {
+      color: $primary-color;
+      font-weight: 600;
+    }
+  }
+}
+
+// Back to top Button
+
+.back-to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 998;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1s ease;
+
+  i {
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    background-color: $primary-color;
+    transition: display 0.5s ease;
+    cursor: pointer;
+
+    &:hover {
+      background: $primary-color-2nd;
+      transition: background 0.2s ease-in-out;
+    }
+  }
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.active-toggle {
+  left: 0 !important;
+}

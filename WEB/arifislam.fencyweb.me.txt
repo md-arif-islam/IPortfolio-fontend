@@ -1,0 +1,24 @@
+Your Account Details
+Your account is now active.
+Main Hosting Details
+Control panel username
+	fncyw_26529004
+Control panel password 	**********
+Control panel URL
+	cpanel.fancyweb.me
+MySQL username
+	fncyw_26529004
+MySQL password
+	**********
+MySQL hostname
+	sql210.fancyweb.me
+FTP username
+	fncyw_26529004
+FTP password
+	**********
+FTP host name 	ftp.fancyweb.me
+
+	
+Your Website URL's
+Home page
+	http://arifislam.fancyweb.me

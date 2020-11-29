@@ -1,0 +1,54 @@
+@media (max-width: 1200px) {
+  .header {
+    left: -300px;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .footer {
+    position: static;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  .main .hero_content h1 {
+    font: normal bold 50px/60px "Raleway", sans-serif;
+    color: #fff;
+  }
+}
+
+@media (max-width: 575px) {
+  .main .hero_content {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+  }
+
+  .main .hero_content h1 {
+    font: normal bold 40px/50px "Raleway", sans-serif;
+    color: #fff;
+  }
+
+  .mobile-nav-toggle i {
+    font-size: 3rem;
+    right: 1rem;
+    top: 1rem;
+    width: 3.7rem;
+  }
+
+  .mobile-nav-toggle i span {
+    right: 0.8rem;
+    top: 1.8rem;
+    width: 4rem;
+    height: 4rem;
+  }
+}
